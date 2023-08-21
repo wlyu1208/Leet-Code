@@ -8,9 +8,7 @@ class MyQueue:
         self.stack.append(x)
 
     def pop(self) -> int:
-        first = self.stack[0]
-        self.stack.remove(first)
-        return first
+        return self.stack.pop(0)
 
     def peek(self) -> int:
         return self.stack[0]
