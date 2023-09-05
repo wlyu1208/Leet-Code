@@ -4,14 +4,16 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import defaultdict
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        l = defaultdict(list)
+        track = defaultdict(list)
         def dfs(node, h):
-            if node is None:
-                return
-            l[h].append(node.val)
+            if not node:
+                return 
+            track[h].append(node.val)
             dfs(node.left, h + 1)
             dfs(node.right, h + 1)
+        
         dfs(root, 0)
-        return l.values()
+        return track.values()
