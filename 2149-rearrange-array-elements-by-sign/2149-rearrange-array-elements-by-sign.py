@@ -9,11 +9,9 @@ class Solution:
         
         ans = []
         p_idx, n_idx = 0, 0
-        for i in range(len(nums)):
-            if i % 2 == 0:
-                ans.append(pos[p_idx])
-                p_idx += 1
-            else:
-                ans.append(neg[n_idx])
-                n_idx += 1
+        while n_idx < len(nums) // 2:
+            ans.append(pos[p_idx])
+            p_idx += 1
+            ans.append(neg[n_idx])
+            n_idx += 1
         return ans
