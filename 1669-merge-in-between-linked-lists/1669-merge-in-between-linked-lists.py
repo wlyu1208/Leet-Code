@@ -11,7 +11,7 @@ class Solution:
             current = current.next
         
         end = current.next
-        for _ in range(b - a + 1):
+        for _ in range(b-a+1):
             end = end.next
         
         current.next = list2
