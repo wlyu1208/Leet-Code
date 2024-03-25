@@ -1,4 +1,3 @@
 class Solution:
     def findDuplicates(self, nums: List[int]) -> List[int]:
-        counter = Counter(nums)
-        return [k for k, v in counter.items() if v != 1]
+        return [k for k, v in Counter(nums).items() if v != 1]
