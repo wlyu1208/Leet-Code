@@ -1,19 +1,19 @@
 class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
         n = len(nums)
+        idx = 0
 
         for i in range(n-1):
-            if nums[i] != nums[i+1]:
-                continue
-            else:
+            if nums[i] == nums[i+1]:
                 nums[i] *= 2
                 nums[i+1] = 0
-        ans = []
-        for _n in nums:
-            if _n != 0:
-                ans.append(_n)
         
-        while len(ans) != n:
-            ans.append(0)
+        for i in range(n):
+            if nums[i] != 0:
+                nums[idx] = nums[i]
+                idx += 1
         
-        return ans
+        for i in range(idx, n):
+            nums[i] = 0
+        
+        return nums
