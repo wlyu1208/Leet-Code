@@ -1,13 +1,13 @@
 class Solution:
     def mostPoints(self, questions: List[List[int]]) -> int:
         n = len(questions)
-        cache = [0] * (n+1)
+        cache = [0] * (n)
         for i in reversed(range(n)):
             pt, bp = questions[i]
             
             next_i = i + 1 + bp
             solve = pt + (cache[next_i] if next_i < n else 0)
-            skip = cache[i+1] if i < n else 0
+            skip = cache[i+1] if i < n-1 else 0
             cache[i] = max(solve, skip)
 
         return cache[0]
