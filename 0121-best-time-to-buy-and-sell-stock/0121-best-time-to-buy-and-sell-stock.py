@@ -1,14 +1,11 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        answer, n = 0, len(prices)
-        buy = 10**4
-        for i in range(n):
-            today = prices[i]
-
-            if today < buy:
-                buy = today
-            else:
-                answer = max(answer, today - buy)
-        
-        return answer
-
+        buy = prices[0]
+        profit = 0
+        for p in prices[1:]:
+            if p < buy:
+                buy = p
+            
+            profit = max(profit, p - buy)
+    
+        return profit
